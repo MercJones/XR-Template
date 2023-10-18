@@ -8,13 +8,15 @@ public class WaterCooler : MonoBehaviour
     public GameObject hotInlet;
     public GameObject coldInlet;
     public SteamPuzzleManager leadValve;
+    public float localPressure;
 
     public void pressureUpdate()
     {
         float hot = hotInlet.gameObject.GetComponentInChildren<XRKnob>().value;
         float cold= coldInlet.gameObject.GetComponentInChildren<XRKnob>().value;
-        leadValve.pressure = (hot * 600) - (cold * 250);
-        if (leadValve.pressure < 280 && leadValve.pressure > 200 && hot + cold > 1.0)
+        localPressure = (hot * 600) - (cold * 250);
+        
+        if (localPressure < 300 && localPressure > 200 && hot + cold > 1.0)
         {
             steamUp();
         }
