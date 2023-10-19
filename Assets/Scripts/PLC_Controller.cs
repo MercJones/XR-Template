@@ -35,6 +35,7 @@ public class PLC_Controller : MonoBehaviour
         {
             Debug.Log("The Puzzle is correct");
             DoorTask.current.completeTrigger("Door 1");
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }

@@ -21,6 +21,7 @@ public class ElevatorDoorControl : MonoBehaviour
             this.gameObject.GetComponent<Animator>().enabled = true;
             Debug.Log("Opening");
             invoked = true;
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }
