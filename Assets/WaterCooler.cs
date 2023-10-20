@@ -31,7 +31,7 @@ public class WaterCooler : MonoBehaviour
     public void steamUp()
     {
         Debug.Log("Pressurizing");
-        leadValve.pressure = 200;
+        leadValve.pressure = 180;
     }
 
     public void steamDown()

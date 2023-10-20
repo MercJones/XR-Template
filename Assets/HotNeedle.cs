@@ -15,7 +15,7 @@ public class HotNeedle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float pressureAngle = Mathf.Clamp(leadValve.localPressure - 100, -40f, 220f);
+        float pressureAngle = Mathf.Clamp(leadValve.localPressure - 130, -40f, 220f);
         this.gameObject.transform.localEulerAngles = new Vector3(0, 0, pressureAngle);
     }
 }
