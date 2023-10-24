@@ -39,14 +39,15 @@ public class ResetCables : MonoBehaviour
     [ContextMenu("Reset")]
     public void Reset()
     {
-        DeleteCables();
-        //CreateCables();
+        /*DeleteCables();
+        CreateCables();
         GameObject[] cables = GameObject.FindGameObjectsWithTag("Cable");
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
         //for(int i = 0; i < spawns.Length; i++) 
         {
             //cables[i].transform = spawns[i].transform;
         }
+        */
         EnigmaPlugBoard board = FindFirstObjectByType<EnigmaPlugBoard>();
         board.Fix();
     }
