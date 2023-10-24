@@ -44,16 +44,16 @@ public class EnigmaPlugBoard : MonoBehaviour
         PlugBoard[Convert.ToInt32(plug2 - 65)] = plug1;
     }
     [ContextMenu("Swap")]
-    public string Swap()
+    public string Swap(string inString)
     {
         string output = "";
-        foreach (char c in input)
+        foreach (char c in inString)
         {
             char cypher;
             int pos = Convert.ToInt32(c) - 65;
             if (pos >= 0)
             {
-                if (PlugBoard[pos] != '-')
+                if (PlugBoard[pos] != '*')
                 {
                     cypher = PlugBoard[pos];
                     output += cypher;
@@ -71,15 +71,34 @@ public class EnigmaPlugBoard : MonoBehaviour
       
     }
 
+    public int PlugCypher(int input)
+    {
+      
+        UnityEngine.Debug.Log("Plugboard recieves" + input);
+        int cypher;
+        if (PlugBoard[input] != '*' )
+        {
+            UnityEngine.Debug.Log("Value at plugboard is" + PlugBoard[input]);
+            cypher = Convert.ToInt32(PlugBoard[input]-65);
+            return cypher;
+        }
+        UnityEngine.Debug.Log("No return from plug" + input);
+        return (input);
+    }
+
 
     [ContextMenu("Fix")]
-    void Fix()
+    public void Fix()
     {
+        //PlugBoard = new char[26];
+        
         for(int i =0; i < 26; i++)
         {
-            PlugBoard[i] = Convert.ToChar(i + 65);
+            PlugBoard[i] = '*';//Convert.ToChar(i + 65);
         }
 
     }
+
+    
 
 }

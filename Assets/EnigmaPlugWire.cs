@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
-
+using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit;
 public class EnigmaPlugWire : MonoBehaviour
 {
     public EnigmaPlugWire otherEnd;
     public EnigmaPlugBoard board;
     public char letter;
+    public bool inSlot;
     // Start is called before the first frame update
     void Start()
     {
-
+        board = FindAnyObjectByType<EnigmaPlugBoard>();
     }
 
     // Update is called once per frame
@@ -19,24 +22,32 @@ public class EnigmaPlugWire : MonoBehaviour
 
     }
 
-    public void SetLetterPlug()
+    public void SetLetterPlug(GameObject xrSock)
     {
+       // letter = xrsock.transform.gameObject.GetComponent<EnigmaPlugBoardSocket>().plugChar;
+        Collider[] hits = Physics.OverlapBox(this.transform.position, new Vector3(.015f, .01f, .01f));
+        //foreach (Collider c in hits)
         {
-            RaycastHit[] hits = this.gameObject.GetComponent<Rigidbody>().SweepTestAll(new Vector3(0, 0, 0), 0f);
-            foreach (var hit in hits)
+            if (xrSock.gameObject.GetComponent<EnigmaPlugBoardSocket>())
             {
-                if (hit.transform.gameObject.GetComponent<EnigmaPlugBoardSocket>())
-                {
-                    letter = hit.transform.gameObject.GetComponent<EnigmaPlugBoardSocket>().plugChar;
-                    break;
-                }
+                letter = xrSock.GetComponent<EnigmaPlugBoardSocket>().plugChar;
             }
         }
     }
 
-    public void ConnectPlug()
+    public void ConnectPlug(GameObject xrsock)
     {
-        int convertA = (int)letter;
-        board.InsertPlug(letter, otherEnd.letter);
+        SetLetterPlug(xrsock.gameObject);
+        inSlot = true;
+        if (otherEnd != null && otherEnd.inSlot == true)
+        {
+            int convertA = (int)letter;
+            board.InsertPlug(letter, otherEnd.letter);
+        }
+    }
+
+    public void removePlug()
+    {
+        letter = '*';
     }
 }
