@@ -10,6 +10,7 @@ public class EnigmaPlugBoardSocket : MonoBehaviour
     public char plugChar;
     public int overlaps;
     XRSocketInteractor socket;
+    IXRSelectInteractable ixr;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class EnigmaPlugBoardSocket : MonoBehaviour
 
     public void InsertPlug()
     {
-        IXRSelectInteractable ixr = socket.GetOldestInteractableSelected();
+        ixr = socket.GetOldestInteractableSelected();
         //Collider[] hits = Physics.OverlapBox(this.transform.position, new Vector3(.029f, .239f, .139f));
         //foreach(Collider c in hits)
         {
@@ -37,11 +38,12 @@ public class EnigmaPlugBoardSocket : MonoBehaviour
 
     public void RemovePlug()
     {
-        IXRSelectInteractable ixr = socket.GetOldestInteractableSelected();
+        //IXRSelectInteractable ixr = socket.GetOldestInteractableSelected();
+        char otherLetter = ixr.transform.gameObject.GetComponent<EnigmaPlugWire>().letter;
         EnigmaPlugBoard plugboard = FindAnyObjectByType<EnigmaPlugBoard>();
         for (int i = 0; i < 26; i++)
         { 
-            if (plugboard.PlugBoard[i] == ixr.transform.gameObject.GetComponent<EnigmaPlugWire>().letter)
+            if (plugboard.PlugBoard[i] == otherLetter)
             {
                 plugboard.PlugBoard[i] = '*';
             }
