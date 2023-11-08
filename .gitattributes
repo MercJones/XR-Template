@@ -67,3 +67,4 @@
 .skp4 filter=lfs diff=lfs merge=lfs -text
 .skp filter=lfs diff=lfs merge=lfs -text
 .apk filter=lfs diff=lfs merge=lfs -text
+CameraMani-arm64.apk filter=lfs diff=lfs merge=lfs -text
