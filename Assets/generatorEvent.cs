@@ -5,7 +5,7 @@ using UnityEngine;
 public class generatorEvent : MonoBehaviour
 {
     public GameObject target;
-
+   
     
         void Start()
         {
@@ -21,8 +21,9 @@ public class generatorEvent : MonoBehaviour
     }
    public void GetPower()
     {
-        Debug.Log("Power on");
-        target.SetActive(true);
+        Debug.Log("Move Screen");
+        //This was what we were using when it was just a code to turn on.
+        //target.SetActive(true);
 
     }
 }

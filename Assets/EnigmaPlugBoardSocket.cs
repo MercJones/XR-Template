@@ -34,6 +34,7 @@ public class EnigmaPlugBoardSocket : MonoBehaviour
                 ixr.transform.gameObject.GetComponent<EnigmaPlugWire>().ConnectPlug(this.gameObject);
             }
         }
+       
     }
 
     public void RemovePlug()

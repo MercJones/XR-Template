@@ -40,6 +40,20 @@ public class EnigmaPlugBoard : MonoBehaviour
 
     public void InsertPlug(char plug1, char plug2)
     {
+        foreach(char c in PlugBoard)
+        {
+            if (PlugBoard[c] == plug1)
+            {
+                PlugBoard[c] = '*';
+            }
+        }
+        foreach (char c in PlugBoard)
+        {
+            if (PlugBoard[c] == plug2)
+            {
+                PlugBoard[c] = '*';
+            }
+        }
         PlugBoard[Convert.ToInt32(plug1 - 65)] = plug2;
         PlugBoard[Convert.ToInt32(plug2 - 65)] = plug1;
     }
