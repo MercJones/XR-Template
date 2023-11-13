@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class BatteryCharge : MonoBehaviour
 {
     public float charge;
+    public bool leverOn = true;
     public SteamValve source;
     public GameObject target;
     // Start is called before the first frame update
@@ -17,17 +18,27 @@ public class BatteryCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(source.steam > 34 && charge < 15f)
+        if(source.steam > 60 && charge < 15f)
         {
             charge += Time.deltaTime / 2;
             
         }
-        Mathf.Clamp(charge, 0, 15);
-        if (charge > 5)
+        
+        if (leverOn && charge > 5)
         {
             Debug.Log("Open Gate");
             target.GetComponent<FinalGrateControl>().openGrate();
-            charge -= Time.deltaTime / 4;
+            charge -= Time.deltaTime;
         }
+
+        if(charge < 0)
+        {
+            charge = 0;
+        }
+    }
+
+    public void SetLever(bool state)
+    {
+        leverOn = state;
     }
 }
