@@ -19,10 +19,31 @@ public class NumberSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Value = (int)(knob.transform.rotation.y /.04f);
-        if(cypherWheel != null) { cypherWheel.GetComponent<EnigmaWheelCypher>().offset = Value; }
+        if (knob != null)
+        {
+            Value = (int)(knob.transform.rotation.y / .04f);
+            if (cypherWheel != null) { cypherWheel.GetComponent<EnigmaWheelCypher>().offset = Value; }
+        }
        
     }
 
+    public void numUp()
+    {
+        Value += 1;
+        if(Value > 25)
+        {
+            Value = 0;
+        }
+        if (cypherWheel != null) { cypherWheel.GetComponent<EnigmaWheelCypher>().offset = Value; }
+    }
     
+    public void numDown()
+    {
+        Value -= 1;
+        if (Value < 0)
+        {
+            Value = 25;
+        }
+        if (cypherWheel != null) { cypherWheel.GetComponent<EnigmaWheelCypher>().offset = Value; }
+    }
 }

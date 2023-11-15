@@ -40,14 +40,14 @@ public class EnigmaPlugBoard : MonoBehaviour
 
     public void InsertPlug(char plug1, char plug2)
     {
-        foreach(char c in PlugBoard)
+        for(int c = 0; c < 26; c++)
         {
             if (PlugBoard[c] == plug1)
             {
                 PlugBoard[c] = '*';
             }
         }
-        foreach (char c in PlugBoard)
+        for (int c = 0; c < 26; c++)
         {
             if (PlugBoard[c] == plug2)
             {
