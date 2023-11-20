@@ -15,7 +15,7 @@ public class FinalGrateControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (heater != null && heater.steam > 65)
+        if (heater != null && heater.steam > 35)
         {
             thaw = true;
         }
