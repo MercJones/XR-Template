@@ -6,6 +6,7 @@ public class FinalGrateControl : MonoBehaviour
 {
     public SteamValve heater;
     public bool thaw;
+    private bool audioPlay = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,13 @@ public class FinalGrateControl : MonoBehaviour
         {
             thaw = false;
         }
-
+        if (this.transform.position.y < 1 && audioPlay == false )
+        {
+            {
+                this.GetComponent<AudioSource>().Play();
+                audioPlay = true;
+            }
+        }
     }
 
     public void openGrate()
