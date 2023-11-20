@@ -68,3 +68,4 @@
 .skp filter=lfs diff=lfs merge=lfs -text
 .apk filter=lfs diff=lfs merge=lfs -text
 CameraMani-arm64.apk filter=lfs diff=lfs merge=lfs -text
+Enigma.apk filter=lfs diff=lfs merge=lfs -text
