@@ -16,7 +16,7 @@ public class WaterCooler : MonoBehaviour
         float cold= coldInlet.gameObject.GetComponentInChildren<XRKnob>().value;
         localPressure = (hot * 600) - (cold * 250);
         
-        if (localPressure < 300 && localPressure > 200 && hot + cold > 1.0)
+        if (localPressure < 300 && localPressure > 175 && hot + cold > 1.0)
         {
             steamUp();
         }
