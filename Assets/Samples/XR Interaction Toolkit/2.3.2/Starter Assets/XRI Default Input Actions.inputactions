@@ -804,6 +804,17 @@
                     "action": "PageDown",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a11f58e9-ea8e-47c3-94e7-43204d495db6",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1529,6 +1540,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "PageDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcf797a5-fccd-4053-b0d9-c1073e00483f",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
