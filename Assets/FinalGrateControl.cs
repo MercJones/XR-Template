@@ -6,6 +6,7 @@ public class FinalGrateControl : MonoBehaviour
 {
     public SteamValve heater;
     public bool thaw;
+    public GameObject motorChild;
     private bool audioPlay = false;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class FinalGrateControl : MonoBehaviour
         if (heater != null && heater.steam > 35)
         {
             thaw = true;
+            
         }
         else
         {
@@ -31,6 +33,7 @@ public class FinalGrateControl : MonoBehaviour
                 audioPlay = true;
             }
         }
+        motorChild.GetComponent<AudioSource>().volume -= Time.deltaTime;
     }
 
     public void openGrate()
@@ -38,6 +41,16 @@ public class FinalGrateControl : MonoBehaviour
         if (thaw && this.transform.position.y > 1)
         {
             this.transform.position -= new Vector3(0f, Time.deltaTime / 3f, 0f);
+            motorChild.GetComponent<AudioSource>().volume = .5f;
+            motorChild.GetComponent<AudioSource>().pitch = 0.3f;
         }
+
+        else if (thaw == false)
+        {
+            motorChild.GetComponent<AudioSource>().volume = .7f;
+            motorChild.GetComponent<AudioSource>().pitch = .6f;
+        }
+
+       // motorChild.GetComponent<AudioSource>().volume = 0f;
     }
 }

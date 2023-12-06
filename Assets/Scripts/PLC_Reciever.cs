@@ -76,6 +76,12 @@ public class PLC_Reciever : MonoBehaviour
                 return true;
             }
         }
+        else if(overlaps == 0 && correctPlug != null)
+        {
+            indicator.gameObject.GetComponent<Renderer>().material = blank;
+
+            return false;
+        }
         else
         {
             indicator.gameObject.GetComponent<Renderer>().material = blank;

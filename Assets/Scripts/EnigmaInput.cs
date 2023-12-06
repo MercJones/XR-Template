@@ -141,6 +141,6 @@ public class EnigmaInput : MonoBehaviour
             }
 
         }
-            this.gameObject.GetComponent<TextMeshPro>().text = (code + codeString);
+            this.gameObject.GetComponent<TextMeshPro>().text = (code + "\r\n" + codeString);
     }
 }
