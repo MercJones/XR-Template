@@ -18,7 +18,7 @@ public class BatteryCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(source.steam > 35 && charge < 15f)
+        if(source.steam > 39 && charge < 15f)
         {
             charge += Time.deltaTime / 2;
             
