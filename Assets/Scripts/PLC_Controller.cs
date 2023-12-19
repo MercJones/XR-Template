@@ -38,4 +38,10 @@ public class PLC_Controller : MonoBehaviour
             this.GetComponent<AudioSource>().Play();
         }
     }
+
+    [ContextMenu("Override")]
+    public void OverrideAnswer()
+    {
+        DoorTask.current.completeTrigger("Door 1");
+    }
 }
