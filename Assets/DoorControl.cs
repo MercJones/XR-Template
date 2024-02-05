@@ -33,13 +33,16 @@ namespace UnityEngine.XR.Content.Interaction
 
         private void OnComplete(string id)
         {
-            Debug.Log(this.gameObject + " Detecting event for " + id);
-            if (id == localId)
-            {
-                this.gameObject.GetComponent<Door>().onUnlock.Invoke();
-                this.gameObject.GetComponent<Door>().m_Locked = false;
-                Debug.Log("Unlocking");
-            }
+            /*
+                Debug.Log(this.gameObject + " Detecting event for " + id);
+                if (id == localId)
+                {
+                    this.gameObject.GetComponent<Door>().onUnlock.Invoke();
+                    this.gameObject.GetComponent<Door>().m_Locked = false;
+                    Debug.Log("Unlocking");
+                }
+            */
+            this.gameObject.GetComponent<Animator>().enabled = true;
         }
     }
 }
